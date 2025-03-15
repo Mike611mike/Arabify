@@ -18,7 +18,7 @@ jobs:
           love-package: ./game.love   # Must be in root directory!
           app-name: "Arabify"
           bundle-id: com.mike.arabify
-          version-string: 1.0.0
+          version-string: 1.0.4
           version-code: 100
           output-folder: ./build
           # Only include these if you added secrets:
