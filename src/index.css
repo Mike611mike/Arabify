@@ -1,0 +1,164 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark mode variables (default) */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 142 71% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 16%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 142 71% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  /* Light mode colors */
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 142 72% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 142 72% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142 72% 35%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  /* Dark mode styling */
+  body {
+    @apply bg-background text-foreground font-sans;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(18, 18, 18, 1) 25%);
+    min-height: 100vh;
+  }
+
+  /* Light mode styling - completely different background */
+  .light body {
+    @apply bg-white text-slate-900;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.98), rgba(245, 245, 250, 1) 25%);
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  /* Card styling for dark mode */
+  .glass-card {
+    @apply bg-spotify-light bg-opacity-80 backdrop-filter backdrop-blur-md;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Card styling for light mode */
+  .light .glass-card {
+    @apply bg-white bg-opacity-90;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .arabic-text {
+    @apply font-arabic text-right;
+    direction: rtl;
+  }
+
+  /* Enhanced contrast for light mode */
+  .light .text-spotify-text {
+    @apply text-gray-600;
+  }
+
+  .light .text-spotify-white {
+    @apply text-gray-900;
+  }
+
+  .page-transition-enter {
+    @apply opacity-0;
+  }
+  
+  .page-transition-enter-active {
+    @apply opacity-100 transition-opacity duration-300;
+  }
+  
+  .page-transition-exit {
+    @apply opacity-100;
+  }
+  
+  .page-transition-exit-active {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+}
+
+@layer components {
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-[1.03];
+  }
+
+  /* Dark mode buttons */
+  .spotify-button {
+    @apply px-6 py-3 bg-spotify-green text-spotify-black font-semibold rounded-full 
+           hover:bg-opacity-80 transition-all duration-200 focus:outline-none;
+  }
+
+  /* Light mode buttons remain the same for brand consistency */
+  .light .spotify-button {
+    @apply px-6 py-3 bg-spotify-green text-white font-semibold rounded-full 
+           hover:bg-opacity-80 transition-all duration-200 focus:outline-none;
+  }
+
+  /* Dark mode cards */
+  .spotify-card {
+    @apply bg-spotify-light rounded-lg p-5 hover:bg-opacity-80 
+           transition-all duration-200 ease-in-out hover-scale;
+  }
+
+  /* Light mode cards */
+  .light .spotify-card {
+    @apply bg-white shadow-md border border-gray-100;
+  }
+}
